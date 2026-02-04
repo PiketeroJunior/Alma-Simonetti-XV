@@ -1,0 +1,460 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Rosellia";
+    src: url('../fonts/Rosellia.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Valestine";
+    src: url('../fonts/Valestine.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Royalty Free 1";
+    src: url('../fonts/Royalty\ Free.otf') format('opentype'); /*Para los h2*/
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Royalty Free 2";
+    src: url('../fonts/Royalty\ Free.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.body {
+    font-family: 'Valestine', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background: #fff;
+}
+
+.subtitulo {
+  font-size: 6rem;
+  margin-bottom: 15px;
+  font-family: "Rosellia", sans-serif;
+}
+/*Presentacion*/
+.presentacion {
+   /*position: relative;*/
+  height: 100vh;
+  display: flex;
+   /*align-items: center;*/
+  /*justify-content: center; */
+   /*text-align: center;*/
+   /*color: #fff;*/
+}
+
+.izquierda {
+  position: relative; /* agregado */
+  width: 50%;
+  height: 100%;
+}
+
+.izquierda .foto-portada {
+   /*position: absolute;*/
+   /*inset: 0;*/
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+   /*z-index: -1;*/
+}
+
+/*.presentacion::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 0;
+}*/
+
+/*antes texto portada ahora derecha*/ 
+.derecha {     
+  /* position: relative;  */ /* alt + shift + a comenta el codigo */
+  /* z-index: 1; */  /* o si no ctrl + k + c pero con el mouse */
+  width: 50%;
+  background-color: #4682b4; /* o navy */
+  color: #222; /* o #fff */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+/* antes texto portada ahora cont-derecha */
+.cont-derecha h1 {
+  font-size: 4rem;
+  margin-bottom: 10px;
+  font-family: 'Rosellia', sans-serif;
+}
+
+.cont-derecha .frase {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  font-family: 'Valestine', sans-serif;
+}
+
+.cont-derecha .fecha {
+  font-size: 2.4rem;
+  font-style: italic;
+  font-family: 'Rosellia', sans-serif;
+}
+
+.imgDeco {
+  width: 250px;
+  height: auto;
+  margin-top: 20px;
+}
+
+.nombre {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  transform: translateY(-50%);
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.nombre h2 {
+  font-family: 'Royalty Free 2';
+  font-size: 3.5rem;
+  margin: 0;
+}
+/*Lugar*/
+.lugar {
+  padding: 60px 20px;
+  text-align: center;
+}
+/*
+.lugar h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}*/
+
+.lugar h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.lugar p {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.lugar .btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 25px;
+  background: #4682b4;
+  color: #222;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  font-size: 1.3rem;
+  
+}
+
+.lugar .btn:hover {
+  background: #5a94c9;
+  transform: scale(1.05);
+}
+
+/* Contador */
+.contador {
+  padding: 60px 20px;
+  text-align: center;
+  background: #fafafa;
+}
+
+/*.contador h2 {
+  margin-bottom: 15px;
+}*/
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.tiempo {
+  background: #4682b4;
+  color: #222;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.tiempo:hover {
+  transform: scale(1.05);
+  background: #5a94c9;
+}
+
+.tiempo span {
+  font-size: 1.8rem;
+}
+
+.tiempo small {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+/* Confirmación */
+.asistencia {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.asistencia p {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+.asistencia a {
+  border-radius: 25px;
+  border: none;
+}
+
+.btn-confirmar {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 25px;
+  background: #4682b4;
+  color: #222;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  font-size: 1.3rem;
+}
+
+.btn-confirmar:hover {
+  background: #5a94c9;
+  transform: scale(1.05);
+}
+/* Dresscode */
+.dresscode {
+  padding: 60px 20px;
+  text-align: center;
+  background: #fafafa;
+}
+
+.dresscode p {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.dresscode img {
+  width: 10%;
+}
+
+/* Galería */
+.galeria {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.galeria .cont-galeria {
+  display: flex;
+  /*grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.img-galeria {
+  /*width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s;
+  cursor: pointer;*/
+  width: 30%;
+  display: block;
+  /*margin-top: 25px;*/
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+  
+}
+
+.image-light {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity .2s ease-in-out;
+    opacity: 0;
+    pointer-events: none; /* Evita que bloquee la interacción */
+    z-index: 1000; /* Debe estar debajo de la X y el menú */
+}
+
+.image-light.show {
+    opacity: 1;
+    pointer-events: auto; /* Permite clics solo cuando está visible */
+}
+
+.agregar-imagen {
+    object-fit: cover;
+    width: 40%;
+    border-radius: 10px;
+    transform: scale(0);
+    transition: transform .3s .2s;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    cursor: pointer;
+    z-index: 1002 !important; /* Más alto que .image-light */
+    background-color: transparent;
+    pointer-events: auto !important; /* Activa los clics */
+}
+
+.showImage {
+    transform: scale(1);
+}
+
+.show {
+    transform: translate(0);
+}
+
+/* Alias */
+.regalo {
+  padding: 60px 20px;
+  text-align: center;
+  background: #4682b4; /* #fafafa */
+}
+
+.regalo p {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.alias {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #222;
+  margin-top: 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+footer a.footer-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+footer a.footer-link:hover {
+  color: #4682b4;
+}
+
+@media (max-width: 768px) {
+  .presentacion {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .izquierda {      /* antes izquierda y der con width 100% y height auto */
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .izquierda .foto-portada {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+  }
+
+  .derecha {
+    width: 100%;
+    height: auto;
+    min-height: 50vh;
+    padding: 40px 20px;
+  }
+
+  .cont-derecha .frase {
+    font-size: 3em;
+  }
+
+  .contador {
+        padding: 40px 10px; /* Reduce el padding para pantallas pequeñas */
+  }
+
+  .countdown {
+        gap: 10px; /* Reduce el espacio entre los círculos */
+        margin: 20px 0; /* Reduce el margen superior e inferior */
+  }
+
+  .tiempo {
+        width: 70px; /* Reduce el tamaño de los círculos */
+        height: 70px; /* Reduce la altura de los círculos */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Reduce la sombra */
+  }
+
+  .tiempo span {
+        font-size: 1.4rem; /* Reduce el tamaño de los números */
+  }
+
+  .tiempo small {
+        font-size: 0.7rem; /* Reduce el tamaño de la palabra (Días, Horas, etc.) */
+  }
+
+  .subtitulo {
+    font-size: 4.5em;
+  }
+
+  .img-galeria {
+    width: 95%;
+  }
+
+  .agregar-imagen {
+        width: 95%;
+    }
+
+  .dresscode img {
+    width: 7em;
+  }
+}
