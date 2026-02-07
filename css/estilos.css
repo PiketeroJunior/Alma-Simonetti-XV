@@ -5,44 +5,30 @@
 }
 
 @font-face {
-    font-family: "Rosellia";
-    src: url('../fonts/Rosellia.otf') format('opentype');
+    font-family: "Recoleta";
+    src: url('../fonts/Recoleta-RegularDEMO.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Valestine";
-    src: url('../fonts/Valestine.ttf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Royalty Free 1";
-    src: url('../fonts/Royalty\ Free.otf') format('opentype'); /*Para los h2*/
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Royalty Free 2";
-    src: url('../fonts/Royalty\ Free.ttf') format('opentype');
+    font-family: "Tempting";
+    src: url('../fonts/Tempting\ -\ PERSONAL\ USE\ ONLY.ttf') format('opentype'); /*Para los h2*/
     font-weight: normal;
     font-style: normal;
 }
 
 .body {
-    font-family: 'Valestine', sans-serif;
+    font-family: 'Recoleta', sans-serif;
     color: #333;
     line-height: 1.6;
     background: #fff;
 }
 
 .subtitulo {
-  font-size: 6rem;
+  font-size: 4rem;
   margin-bottom: 15px;
-  font-family: "Rosellia", sans-serif;
+  font-family: "Tempting", sans-serif;
 }
 /*Presentacion*/
 .presentacion {
@@ -83,7 +69,7 @@
   /* position: relative;  */ /* alt + shift + a comenta el codigo */
   /* z-index: 1; */  /* o si no ctrl + k + c pero con el mouse */
   width: 50%;
-  background-color: #4682b4; /* o navy */
+  background-color: #FFEEBD; /* o navy  #FFEEBD*/
   color: #222; /* o #fff */
   display: flex;
   align-items: center;
@@ -93,21 +79,21 @@
 }
 /* antes texto portada ahora cont-derecha */
 .cont-derecha h1 {
-  font-size: 4rem;
+  font-size: 3.2rem;
   margin-bottom: 10px;
-  font-family: 'Rosellia', sans-serif;
+  font-family: 'Tempting', sans-serif;
 }
 
 .cont-derecha .frase {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   margin-bottom: 10px;
-  font-family: 'Valestine', sans-serif;
+  font-family: 'Tempting', sans-serif;
 }
 
 .cont-derecha .fecha {
-  font-size: 2.4rem;
+  font-size: 2.0rem;
   font-style: italic;
-  font-family: 'Rosellia', sans-serif;
+  font-family: 'Tempting', sans-serif;
 }
 
 .imgDeco {
@@ -127,10 +113,11 @@
 }
 
 .nombre h2 {
-  font-family: 'Royalty Free 2';
+  font-family: 'Recoleta', sans-serif;
   font-size: 3.5rem;
   margin: 0;
 }
+
 /*Lugar*/
 .lugar {
   padding: 60px 20px;
@@ -156,7 +143,7 @@
   display: inline-block;
   margin-top: 15px;
   padding: 10px 25px;
-  background: #4682b4;
+  background: #FFEEBD; /* #4682b4 */
   color: #222;
   border-radius: 25px;
   text-decoration: none;
@@ -190,7 +177,7 @@
 }
 
 .tiempo {
-  background: #4682b4;
+  background: #FFEEBD; /* #4682b4 */
   color: #222;
   width: 100px;
   height: 100px;
@@ -238,7 +225,7 @@
   display: inline-block;
   margin-top: 15px;
   padding: 10px 25px;
-  background: #4682b4;
+  background: #FFEEBD; /* #4682b4 */
   color: #222;
   text-decoration: none;
   font-weight: bold;
@@ -270,35 +257,213 @@
 .galeria {
   padding: 60px 20px;
   text-align: center;
+  background: #fafafa;
+  position: relative;
 }
 
-.galeria .cont-galeria {
-  display: flex;
-  /*grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
-  gap: 10px;
-  margin-top: 20px;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+/* Navegación del flipbook (flechas) */
+.flipbook-nav {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 0;
 }
 
-.img-galeria {
-  /*width: 100%;
-  border-radius: 10px;
-  transition: transform 0.3s;
-  cursor: pointer;*/
-  width: 30%;
-  display: block;
-  /*margin-top: 25px;*/
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+.flipbook-arrow {
+  position: absolute;
+  top: 300px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: white;
+  font-size: 2rem;
   cursor: pointer;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
+  z-index: 100;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.galeria img:hover {
-  transform: scale(1.05);
-  
+.flipbook-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.flipbook-prev {
+  left: -80px;
+}
+
+.flipbook-next {
+  right: -80px;
+}
+
+/* Flipbook Container */
+.flipbook-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  min-height: 600px;
+  position: relative;
+  position: relative;
+}
+
+#flipbook {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Páginas del flipbook */
+.hard, .page {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Texturas de portada y páginas */
+.portada-textura {
+  background-image: url('../img/portada de libro.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pagina-textura {
+  background-image: url('../img/pagina hoja.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+}
+
+/* Grosor de páginas (efecto 3D notorio) */
+#flipbook .page {
+  box-shadow: 
+    inset 0 0 30px rgba(0,0,0,0.1),
+    3px 0 8px rgba(0,0,0,0.15),
+    6px 0 8px rgba(0,0,0,0.12),
+    9px 0 8px rgba(0,0,0,0.09),
+    12px 0 8px rgba(0,0,0,0.06),
+    15px 0 8px rgba(0,0,0,0.03),
+    18px 0 8px rgba(0,0,0,0.01);
+}
+
+#flipbook .hard {
+  box-shadow: 
+    inset 0 0 30px rgba(0,0,0,0.2),
+    4px 0 10px rgba(0,0,0,0.2),
+    8px 0 10px rgba(0,0,0,0.15),
+    12px 0 10px rgba(0,0,0,0.1),
+    16px 0 10px rgba(0,0,0,0.05);
+}
+
+/* Imágenes dentro del flipbook */
+.img-galeria {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: default;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Imágenes dentro de páginas con textura */
+.pagina-textura .img-galeria {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Portada */
+.portada-flipbook {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  color: #333;
+  background: transparent;
+  border-radius: 0;
+}
+
+.portada-flipbook h2 {
+  font-family: 'Tempting', sans-serif;
+  font-size: 4rem;
+  margin-bottom: 10px;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+}
+
+.portada-flipbook h3 {
+  font-family: 'Tempting', sans-serif;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+}
+
+.deco-portada {
+  width: 200px;
+  margin: 20px 0;
+}
+
+.nombre-portada {
+  font-family: 'Recoleta', sans-serif;
+  font-size: 2rem;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+}
+
+.fecha-portada {
+  font-family: 'Recoleta', sans-serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  color: #333;
+  margin-top: 10px;
+  text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+}
+
+/* Contraportada */
+.contraportada-flipbook {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: transparent;
+  margin: 0;
+  border-radius: 0;
+  padding: 40px 20px;
+  height: 100%;
+  width: 100%;
+  color: #333;
+}
+
+.frase-cierre {
+  font-family: 'Tempting', sans-serif;
+  font-size: 2.5rem;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+}
+
+.corazon {
+  font-size: 4rem;
+  filter: drop-shadow(2px 2px 4px rgba(255,255,255,0.8));
 }
 
 .image-light {
@@ -353,7 +518,7 @@
 .regalo {
   padding: 60px 20px;
   text-align: center;
-  background: #4682b4; /* #fafafa */
+  background: #FFEEBD; /* #fafafa */
 }
 
 .regalo p {
@@ -385,7 +550,7 @@ footer a.footer-link {
 }
 
 footer a.footer-link:hover {
-  color: #4682b4;
+  color: #FFEEBD;
 }
 
 @media (max-width: 768px) {
@@ -446,8 +611,58 @@ footer a.footer-link:hover {
     font-size: 4.5em;
   }
 
-  .img-galeria {
-    width: 95%;
+  /* Flipbook responsive */
+  .flipbook-container {
+    min-height: 400px;
+    padding-bottom: 100px;
+    flex-direction: column;
+  }
+  
+  /* Flechas debajo del libro en móvil */
+  .flipbook-arrow {
+    position: absolute !important;
+    top: auto !important;
+    bottom: 20px !important;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .flipbook-prev {
+    left: calc(50% - 80px) !important;
+  }
+  
+  .flipbook-next {
+    right: calc(50% - 80px) !important;
+  }
+  
+  
+  .portada-flipbook h2 {
+    font-size: 3rem;
+  }
+  
+  .portada-flipbook h3 {
+    font-size: 2.5rem;
+  }
+  
+  .deco-portada {
+    width: 150px;
+  }
+  
+  .nombre-portada {
+    font-size: 1.5rem;
+  }
+  
+  .fecha-portada {
+    font-size: 1.2rem;
+  }
+  
+  .frase-cierre {
+    font-size: 2rem;
+  }
+  
+  .corazon {
+    font-size: 3rem;
   }
 
   .agregar-imagen {

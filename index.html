@@ -6,17 +6,17 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="iconos/favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="32x32" href="iconos/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="iconos/favicon-16x16.png">
-    <link rel="apple-touch-icon" href="iconos/apple-touch-icon.png">
-    <link rel="manifest" href="iconos/site.webmanifest">
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="manifest" href="icons/site.webmanifest">
     <title>Mis XV Alma Simonetti</title>
 </head>
 <body>
     <section class="presentacion">
         <div class="izquierda">
-            <img src="img/sofiHeader.JPG" alt="Cumplañera" class="foto-portada">
+            <img src="img/Almi 2.jpg" alt="Cumplañera" class="foto-portada">
             <div class="nombre">
                 <h2>Alma</h2>
             </div>
@@ -62,23 +62,74 @@
     </section>
 
     <section class="asistencia">
-        <h2 class="subtitulo">Confirmar Asistencia</h2>
+        <h2 class="subtitulo">Confirmación de Asistencia</h2>
         <p>Espero que me acompañes en este día tan especial para mí. ¡Confirma tu asistencia antes del 26 de Marzo!</p>
         <a href="https://wa.me/541135784470" target="_blank" class="btn-confirmar">Confirmar Asistencia</a>
     </section>
 
     <section class="dresscode">
         <h2 class="subtitulo">Dress Code</h2>
-        <p>Elegante - No azul / No plateado</p>
-        <img src="img/dresscode.png" alt="vestimenta">
+        <img src="icons/dresscode 3.png" alt="vestimenta">
+        <p>Formal elegante</p>
     </section>
 
     <section class="galeria">
-        <h2 class="subtitulo">Galería</h2>
-        <div class="cont-galeria">
-            <img src="img/sofi1.JPG" class="img-galeria">
-            <img src="img/sofi2.JPG" class="img-galeria">
-            <img src="img/sofi3.JPG" class="img-galeria">
+        <!-- Flechas de navegación -->
+        <div class="flipbook-nav">
+            <button class="flipbook-arrow flipbook-prev" id="prev-btn">
+                <span>◄</span>
+            </button>
+            <button class="flipbook-arrow flipbook-next" id="next-btn">
+                <span>►</span>
+            </button>
+        </div>
+        
+        <div class="flipbook-container">
+            <div id="flipbook">
+                <!-- Página invisible (necesaria para el funcionamiento correcto de Turn.js en modo double) -->
+                <div class="page" style="background: transparent;"></div>
+                <!-- Portada -->
+                <div class="hard portada-textura">
+                    <div class="portada-flipbook">
+                        <h2>Mis XV</h2>
+                        
+            
+                        <p class="nombre-portada">Alma Simonetti</p>
+                        <p class="fecha-portada">10 de Abril 2026</p>
+                    </div>
+                </div>
+                <!-- Foto 1 -->
+                <div class="page pagina-textura">
+                    <img src="img/Almi 1.jpg" class="img-galeria" alt="Foto 1">
+                </div>
+                <!-- Foto 2 -->
+                <div class="page pagina-textura">
+                    <img src="img/Almi 3.jpg" class="img-galeria" alt="Foto 2">
+                </div>
+                <!-- Foto 3 -->
+                <div class="page pagina-textura">
+                    <img src="img/Almi 4.jpg" class="img-galeria" alt="Foto 3">
+                </div>
+                <!-- Foto 4 -->
+                <div class="page pagina-textura">
+                    <img src="img/Almi 5.jpg" class="img-galeria" alt="Foto 4">
+                </div>
+                <!-- Foto 5 -->
+                <div class="page pagina-textura">
+                    <img src="img/Almi 6.jpg" class="img-galeria" alt="Foto 5">
+                </div>
+                <!-- Foto 6 -->
+                <div class="page pagina-textura">
+                    <img src="img/Almi 2.jpg" class="img-galeria" alt="Foto 6">
+                </div>
+                <!-- Contraportada -->
+                <div class="hard portada-textura">
+                    <div class="contraportada-flipbook">
+                        <p class="frase-cierre">"Gracias por<br>acompañarme<br>en este día<br>tan especial"</p>
+                        <p class="corazon">💕</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -98,7 +149,8 @@
             &copy; 2026 <a href="mailto:facundoromangimenez@gmail.com" target="_blank" class="footer-link">PikeDev</a>
         </p>
     </footer>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/turn.min.js"></script>
     <script src="js/galeria.js"></script>
 </body>
 </html>
