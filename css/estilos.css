@@ -253,7 +253,7 @@
   width: 10%;
 }
 
-/* Galería */
+/* ============ GALERÍA TENDEDERO ============ */
 .galeria {
   padding: 60px 20px;
   text-align: center;
@@ -261,209 +261,183 @@
   position: relative;
 }
 
-/* Navegación del flipbook (flechas) */
-.flipbook-nav {
+.tendedero-wrapper {
   position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  height: 0;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding-top: 60px;
 }
 
-.flipbook-arrow {
+/* Cuerda del tendedero */
+.cuerda {
   position: absolute;
-  top: 300px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.5);
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 100;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  top: 30px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #8B7355 5%, 
+    #8B7355 95%, 
+    transparent 100%);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
-.flipbook-arrow:hover {
-  background: rgba(0, 0, 0, 0.8);
-  transform: scale(1.1);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.flipbook-prev {
-  left: -80px;
-}
-
-.flipbook-next {
-  right: -80px;
-}
-
-/* Flipbook Container */
-.flipbook-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-  min-height: 600px;
+/* Contenedor con scroll */
+.tendedero-container {
   position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px 0 40px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ocultar scrollbar pero mantener funcionalidad */
+.tendedero-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tendedero-container::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+  border-radius: 10px;
+}
+
+.tendedero-container::-webkit-scrollbar-thumb {
+  background: rgba(139,115,85,0.5);
+  border-radius: 10px;
+}
+
+.tendedero-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(139,115,85,0.8);
+}
+
+/* Scroll horizontal */
+.tendedero-scroll {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(33.333% - 20px);
+  gap: 30px;
+  padding: 0 20px;
+  min-width: min-content;
+}
+
+/* Cada polaroid */
+.foto-polaroid {
   position: relative;
+  justify-self: center;
+  animation: aparecer 0.6s ease-out forwards;
+  opacity: 0;
+  animation-delay: calc(var(--index, 0) * 0.1s);
 }
 
-#flipbook {
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Páginas del flipbook */
-.hard, .page {
+/* Pinza */
+.pinza {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 25px;
+  background: linear-gradient(to bottom, #d4a574 0%, #b8935c 100%);
+  border-radius: 3px;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.pinza::before,
+.pinza::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 12px;
+  background: #8B7355;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pinza::before {
+  left: 8px;
+}
+
+.pinza::after {
+  right: 8px;
+}
+
+/* Marco polaroid */
+.polaroid-frame {
   background: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  padding: 15px 15px 50px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  transform: rotate(0deg);
 }
 
-/* Texturas de portada y páginas */
-.portada-textura {
-  background-image: url('../img/portada de libro.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.foto-polaroid:nth-child(even) .polaroid-frame {
+  transform: rotate(2deg);
 }
 
-.pagina-textura {
-  background-image: url('../img/pagina hoja.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 20px;
+.foto-polaroid:nth-child(odd) .polaroid-frame {
+  transform: rotate(-2deg);
 }
 
-/* Grosor de páginas (efecto 3D notorio) */
-#flipbook .page {
-  box-shadow: 
-    inset 0 0 30px rgba(0,0,0,0.1),
-    3px 0 8px rgba(0,0,0,0.15),
-    6px 0 8px rgba(0,0,0,0.12),
-    9px 0 8px rgba(0,0,0,0.09),
-    12px 0 8px rgba(0,0,0,0.06),
-    15px 0 8px rgba(0,0,0,0.03),
-    18px 0 8px rgba(0,0,0,0.01);
+.foto-polaroid:hover .polaroid-frame {
+  transform: rotate(0deg) scale(1.05) translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-#flipbook .hard {
-  box-shadow: 
-    inset 0 0 30px rgba(0,0,0,0.2),
-    4px 0 10px rgba(0,0,0,0.2),
-    8px 0 10px rgba(0,0,0,0.15),
-    12px 0 10px rgba(0,0,0,0.1),
-    16px 0 10px rgba(0,0,0,0.05);
-}
-
-/* Imágenes dentro del flipbook */
-.img-galeria {
+.polaroid-img {
   width: 100%;
-  height: 100%;
+  height: 400px;
   object-fit: cover;
-  cursor: default;
-  transition: transform 0.3s ease;
-  pointer-events: none;
+  display: block;
 }
 
-/* Imágenes dentro de páginas con textura */
-.pagina-textura .img-galeria {
-  width: calc(100% - 40px);
-  height: calc(100% - 40px);
-  object-fit: cover;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+/* Responsive - Tablet: 2 fotos */
+@media (max-width: 1024px) {
+  .tendedero-scroll {
+    grid-auto-columns: calc(50% - 15px);
+    gap: 20px;
+  }
+  
+  .polaroid-img {
+    height: 350px;
+  }
 }
 
-/* Portada */
-.portada-flipbook {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px 20px;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  color: #333;
-  background: transparent;
-  border-radius: 0;
-}
-
-.portada-flipbook h2 {
-  font-family: 'Tempting', sans-serif;
-  font-size: 4rem;
-  margin-bottom: 10px;
-  color: #333;
-  text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
-}
-
-.portada-flipbook h3 {
-  font-family: 'Tempting', sans-serif;
-  font-size: 3.5rem;
-  margin-bottom: 20px;
-  color: #333;
-  text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
-}
-
-.deco-portada {
-  width: 200px;
-  margin: 20px 0;
-}
-
-.nombre-portada {
-  font-family: 'Recoleta', sans-serif;
-  font-size: 2rem;
-  margin-top: 20px;
-  font-weight: bold;
-  color: #333;
-  text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
-}
-
-.fecha-portada {
-  font-family: 'Recoleta', sans-serif;
-  font-size: 1.8rem;
-  font-style: italic;
-  color: #333;
-  margin-top: 10px;
-  text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
-}
-
-/* Contraportada */
-.contraportada-flipbook {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: transparent;
-  margin: 0;
-  border-radius: 0;
-  padding: 40px 20px;
-  height: 100%;
-  width: 100%;
-  color: #333;
-}
-
-.frase-cierre {
-  font-family: 'Tempting', sans-serif;
-  font-size: 2.5rem;
-  line-height: 1.5;
-  color: #333;
-  margin-bottom: 30px;
-  text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
-}
-
-.corazon {
-  font-size: 4rem;
-  filter: drop-shadow(2px 2px 4px rgba(255,255,255,0.8));
+/* Responsive - Mobile: 1 foto */
+@media (max-width: 768px) {
+  .tendedero-scroll {
+    grid-auto-columns: calc(85% - 10px);
+    gap: 15px;
+    padding: 0 10px;
+  }
+  
+  .polaroid-img {
+    height: 400px;
+  }
+  
+  .foto-polaroid:nth-child(even) .polaroid-frame,
+  .foto-polaroid:nth-child(odd) .polaroid-frame {
+    transform: rotate(0deg);
+  }
+  
+  .foto-polaroid:hover .polaroid-frame {
+    transform: scale(1.02) translateY(-3px);
+  }
 }
 
 .image-light {
@@ -611,63 +585,9 @@ footer a.footer-link:hover {
     font-size: 4.5em;
   }
 
-  /* Flipbook responsive */
-  .flipbook-container {
-    min-height: 400px;
-    padding-bottom: 100px;
-    flex-direction: column;
-  }
-  
-  /* Flechas debajo del libro en móvil */
-  .flipbook-arrow {
-    position: absolute !important;
-    top: auto !important;
-    bottom: 20px !important;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-  }
-  
-  .flipbook-prev {
-    left: calc(50% - 80px) !important;
-  }
-  
-  .flipbook-next {
-    right: calc(50% - 80px) !important;
-  }
-  
-  
-  .portada-flipbook h2 {
-    font-size: 3rem;
-  }
-  
-  .portada-flipbook h3 {
-    font-size: 2.5rem;
-  }
-  
-  .deco-portada {
-    width: 150px;
-  }
-  
-  .nombre-portada {
-    font-size: 1.5rem;
-  }
-  
-  .fecha-portada {
-    font-size: 1.2rem;
-  }
-  
-  .frase-cierre {
-    font-size: 2rem;
-  }
-  
-  .corazon {
-    font-size: 3rem;
-  }
-
   .agregar-imagen {
-        width: 95%;
-    }
+    width: 95%;
+  }
 
   .dresscode img {
     width: 7em;
