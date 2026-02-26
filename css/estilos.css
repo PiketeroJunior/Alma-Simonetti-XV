@@ -61,7 +61,7 @@
 /* Foto principal centrada */
 .foto-principal {
   position: relative;
-  max-width: 100%;
+  max-width: 70%;
   max-height: 100vh;
   width: auto;
   height: 100vh;
@@ -69,10 +69,27 @@
   z-index: 1;
 }
 
+/* Título Mis XV - arriba centrado */
+.titulo-xv {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+.titulo-xv h1 {
+  font-family: 'Tempting', sans-serif;
+  font-size: 4rem;
+  margin: 0;
+}
+
 /* Nombre Alma - centrado abajo */
 .nombre {
   position: absolute;
-  bottom: 40px;
+  bottom: 20px;
   left: 38%;
   transform: translateX(-50%);
   color: #fff;
@@ -88,6 +105,7 @@
 
 /* ============ SECCIÓN PRESENTACIÓN (MIS XV) ============ */
 .presentacion {
+  position: relative;
   padding: 80px 40px;
   background-color: #FFEEBD;
   color: #222;
@@ -96,11 +114,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+/* Soles decorativos */
+.sol-deco {
+  position: absolute;
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.sol-sup-izq {
+  top: 30px;
+  left: 30px;
+  width: 120px;
+  transform: rotate(-15deg);
+}
+
+.sol-inf-der {
+  bottom: 30px;
+  right: 30px;
+  width: 160px;
+  transform: rotate(20deg);
 }
 
 .cont-derecha {
+  position: relative;
   max-width: 900px;
   margin: 0 auto;
+  z-index: 2;
 }
 
 .cont-derecha h1 {
@@ -121,12 +164,6 @@
   font-style: italic;
   font-family: 'Tempting', sans-serif;
   margin-bottom: 30px;
-}
-
-.imgDeco {
-  width: 250px;
-  height: auto;
-  margin-top: 20px;
 }
 
 /*Lugar*/
@@ -664,22 +701,46 @@
 }
 
 .modal-info {
-  padding: 20px;
+  padding: 25px;
   background: #FFEEBD;
   border-radius: 10px;
   margin-top: 20px;
 }
 
-.modal-alias {
-  font-size: 1.4rem;
-  margin-bottom: 15px;
-  color: #222;
+.modal-alias-label {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #666;
 }
 
-.modal-alias strong {
-  font-size: 1.6rem;
-  display: block;
-  margin-top: 5px;
+.modal-alias {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #222;
+  word-break: break-all;
+}
+
+.btn-copiar {
+  width: 100%;
+  padding: 12px 20px;
+  background: #222;
+  color: #FFEEBD;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-copiar:hover {
+  background: #444;
+  transform: scale(1.02);
+}
+
+.btn-copiar:active {
+  transform: scale(0.98);
 }
 
 .modal-frase {
@@ -732,6 +793,7 @@ footer a.footer-link:hover {
 @media (max-width: 768px) {
   /* Foto inicio responsive - Tablet */
   .foto-principal {
+    max-width: 100%;
     height: 100vh;
     width: auto;
   }
@@ -740,8 +802,23 @@ footer a.footer-link:hover {
     filter: brightness(0.7);
   }
 
+  .titulo-xv h1 {
+    font-size: 3.5rem;
+  }
+
+  .nombre {
+    bottom: 20px;
+    left: 22%;
+    transform: translateX(-50%);
+  }
+
   .nombre h2 {
     font-size: 3.5rem;
+  }
+
+  /* Subtítulos generales */
+  .subtitulo {
+    font-size: 3rem;
   }
 
   /* Presentación responsive */
@@ -750,20 +827,77 @@ footer a.footer-link:hover {
     min-height: 50vh;
   }
 
-  .cont-derecha h1 {
-    font-size: 4rem;
+  /* Soles decorativos tablet */
+  .sol-sup-izq {
+    top: 20px;
+    left: 20px;
+    width: 100px;
+  }
+
+  .sol-inf-der {
+    bottom: 20px;
+    right: 20px;
+    width: 130px;
   }
 
   .cont-derecha .frase {
-    font-size: 2rem;
-  }
-
-  .cont-derecha .fecha {
     font-size: 1.8rem;
   }
 
-  .imgDeco {
-    width: 200px;
+  .cont-derecha .fecha {
+    font-size: 1.6rem;
+  }
+
+  /* Lugar */
+  .lugar h3 {
+    font-size: 1.6rem;
+  }
+
+  .lugar p {
+    font-size: 1.2rem;
+  }
+
+  /* Contador */
+  .contador {
+        padding: 40px 10px;
+  }
+
+  /* Asistencia */
+  .asistencia p {
+    font-size: 1.3rem;
+  }
+
+  .btn-confirmar {
+    font-size: 1.2rem;
+    padding: 12px 22px;
+  }
+
+  /* Dresscode */
+  .dresscode p {
+    font-size: 1.6rem;
+  }
+
+  .dresscode img {
+    width: 8rem;
+  }
+
+  /* Regalo */
+  .regalo p {
+    font-size: 1.3rem;
+  }
+
+  /* Modal */
+  .modal-content {
+    padding: 35px;
+    max-width: 450px;
+  }
+
+  .modal-content h3 {
+    font-size: 2.2rem;
+  }
+
+  .modal-alias {
+    font-size: 1.6rem;
   }
 
   .contador {
@@ -789,19 +923,16 @@ footer a.footer-link:hover {
         font-size: 0.7rem; /* Reduce el tamaño de la palabra (Días, Horas, etc.) */
   }
 
-  .subtitulo {
-    font-size: 4.5em;
-  }
-
   .dresscode img {
-    width: 7em;
+    width: 7rem;
   }
 }
 
 /* Mobile pequeño - iPhone y similares */
 @media (max-width: 500px) {
   .foto-principal {
-    width: 100%;
+    max-width: 100%;
+    width: auto;
     height: auto;
     min-height: 100vh;
     object-fit: cover;
@@ -811,9 +942,17 @@ footer a.footer-link:hover {
     filter: brightness(0.7);
   }
 
+  .titulo-xv {
+    top: 60px;
+  }
+
+  .titulo-xv h1 {
+    font-size: 2.3rem;
+  }
+
   .nombre {
-    bottom: 30px;
-    left: 50%;
+    bottom: 25px;
+    left: 19%;
     transform: translateX(-50%);
   }
 
@@ -821,23 +960,162 @@ footer a.footer-link:hover {
     font-size: 2.8rem;
   }
 
-  .presentacion {
-    padding: 50px 20px;
+  /* Subtítulos generales mobile */
+  .subtitulo {
+    font-size: 2.5rem;
   }
 
-  .cont-derecha h1 {
-    font-size: 3.5rem;
+  /* Presentación */
+  .presentacion {
+    padding: 40px 20px;
+  }
+
+  /* Soles decorativos mobile */
+  .sol-sup-izq {
+    top: 15px;
+    left: 15px;
+    width: 70px;
+  }
+
+  .sol-inf-der {
+    bottom: 15px;
+    right: 15px;
+    width: 90px;
   }
 
   .cont-derecha .frase {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
   }
 
   .cont-derecha .fecha {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
-  .imgDeco {
-    width: 180px;
+  /* Lugar */
+  .lugar {
+    padding: 40px 20px;
+  }
+
+  .lugar h3 {
+    font-size: 1.4rem;
+  }
+
+  .lugar p {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+
+  /* Contador */
+  .contador {
+    padding: 40px 15px;
+  }
+
+  .tiempo {
+    width: 65px;
+    height: 65px;
+  }
+
+  .tiempo span {
+    font-size: 1.3rem;
+  }
+
+  .tiempo small {
+    font-size: 0.65rem;
+  }
+
+  /* Asistencia */
+  .asistencia {
+    padding: 40px 20px;
+  }
+
+  .asistencia p {
+    font-size: 1.1rem;
+  }
+
+  .btn-confirmar {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+
+  /* Dresscode */
+  .dresscode {
+    padding: 40px 20px;
+  }
+
+  .dresscode p {
+    font-size: 1.4rem;
+  }
+
+  .dresscode img {
+    width: 6rem;
+  }
+
+  /* Galería */
+  .galeria {
+    padding: 40px 15px;
+  }
+
+  /* Regalo */
+  .regalo {
+    padding: 40px 20px;
+  }
+
+  .regalo p {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+
+  .btn-regalo {
+    font-size: 1.1rem;
+    padding: 10px 25px;
+  }
+
+  /* Modal mobile */
+  .modal-content {
+    padding: 25px 20px;
+    max-width: 90%;
+  }
+
+  .modal-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .modal-info {
+    padding: 20px 15px;
+  }
+
+  .modal-alias-label {
+    font-size: 1rem;
+  }
+
+  .modal-alias {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+
+  .btn-copiar {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+}
+
+/* Extra pequeño - Menos de 400px */
+@media (max-width: 400px) {
+  .titulo-xv {
+    top: 50px;
+  }
+
+  .titulo-xv h1 {
+    font-size: 1.8rem;
+  }
+
+  .nombre h2 {
+    font-size: 2.4rem;
   }
 }

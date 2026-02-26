@@ -1,8 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Básico -->
+    <meta name="description" content="Te invito a celebrar mis XV años el 10 de Abril de 2026. ¡Espero que me acompañes en este día tan especial!">
+    <meta name="author" content="Alma Simonetti">
+    <meta name="keywords" content="XV años, Alma Simonetti, 15 años, fiesta, invitación">
+    
+    <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mis XV Años - Alma Simonetti">
+    <meta property="og:description" content="Te invito a celebrar mis XV años el 10 de Abril de 2026. ¡Espero que me acompañes en este día tan especial!">
+    <meta property="og:image" content="https://piketerojunior.github.io/Alma-Simonetti-XV/img/Almi 2.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://piketerojunior.github.io/Alma-Simonetti-XV/">
+    <meta property="og:site_name" content="Mis XV - Alma Simonetti">
+    <meta property="og:locale" content="es_AR">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mis XV Años - Alma Simonetti">
+    <meta name="twitter:description" content="Te invito a celebrar mis XV años el 10 de Abril de 2026. ¡Espero que me acompañes en este día tan especial!">
+    <meta name="twitter:image" content="https://piketerojunior.github.io/Alma-Simonetti-XV/img/Almi 2.jpg">
+    
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,19 +43,26 @@
         <div class="foto-fondo"></div>
         <!-- Foto original centrada -->
         <img src="img/Almi 2.jpg" alt="Cumplañera" class="foto-principal">
-        <!-- Nombre Alma -->
+        <!-- Título Mis XV arriba -->
+        <div class="titulo-xv">
+            <h1>Mis XV</h1>
+        </div>
+        <!-- Nombre Alma abajo -->
         <div class="nombre">
             <h2>Alma</h2>
         </div>
     </section>
 
-    <!-- Sección 2: Mis XV -->
+    <!-- Sección 2: Presentación -->
     <section class="presentacion scroll-section">
+        <!-- Sol decorativo superior izquierdo -->
+        <img src="img/rapunzel.png" alt="sol decorativo" class="sol-deco sol-sup-izq">
+        <!-- Sol decorativo inferior derecho -->
+        <img src="img/rapunzel.png" alt="sol decorativo" class="sol-deco sol-inf-der">
+        
         <div class="cont-derecha">
-            <h1>Mis XV</h1>
             <p class="frase">"Mi mayor deseo para mí noche soñada es poder compartirla con las personas que más amo y las que siempre me acompañan para guardar momentos que quedarán en mi corazón, Te espero ahí"</p>
             <p class="fecha">10 de Abril 2026</p>
-            <img src="img/broche.png" alt="decoracion" class="imgDeco">
         </div>
     </section>
 
@@ -142,7 +172,7 @@
 
     <section class="image-light">
             <img src="img/bx-x.svg" class="close">
-            <img src="img/sofi1.JPG" class="agregar-imagen">
+            <img src="img/Almi 1.jpg" class="agregar-imagen">
     </section>
 
     <section class="regalo scroll-section">
@@ -156,10 +186,14 @@
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <span class="modal-close">&times;</span>
-            
+            <h3>Datos para Regalo</h3>
             <div class="modal-info">
-                <p class="modal-alias">Alias: <strong>alma.simonetti15</strong></p>
-                
+                <p class="modal-alias-label">Alias:</p>
+                <p class="modal-alias" id="aliasTexto">alma.simonetti15</p>
+                <button class="btn-copiar" id="btnCopiar">
+                    <span class="texto-copiar">Copiar Alias</span>
+                    <span class="texto-copiado" style="display: none;">¡Copiado! ✓</span>
+                </button>
             </div>
         </div>
     </div>

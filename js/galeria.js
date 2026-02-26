@@ -109,6 +109,47 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// ============ COPIAR ALIAS ============
+const btnCopiar = document.getElementById('btnCopiar');
+const aliasTexto = document.getElementById('aliasTexto');
+const textoCopiar = document.querySelector('.texto-copiar');
+const textoCopiado = document.querySelector('.texto-copiado');
+
+btnCopiar.addEventListener('click', () => {
+  const alias = aliasTexto.textContent;
+  
+  // Copiar al portapapeles
+  navigator.clipboard.writeText(alias).then(() => {
+    // Cambiar texto del botón
+    textoCopiar.style.display = 'none';
+    textoCopiado.style.display = 'inline';
+    
+    // Volver al texto original después de 2 segundos
+    setTimeout(() => {
+      textoCopiar.style.display = 'inline';
+      textoCopiado.style.display = 'none';
+    }, 2000);
+  }).catch(err => {
+    // Fallback para navegadores más antiguos
+    const textArea = document.createElement('textarea');
+    textArea.value = alias;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      textoCopiar.style.display = 'none';
+      textoCopiado.style.display = 'inline';
+      setTimeout(() => {
+        textoCopiar.style.display = 'inline';
+        textoCopiado.style.display = 'none';
+      }, 2000);
+    } catch (err) {
+      console.error('Error al copiar:', err);
+    }
+    document.body.removeChild(textArea);
+  });
+});
+
 // ============ ANIMACIONES SCROLL ============
 const scrollSections = document.querySelectorAll('.scroll-section');
 
