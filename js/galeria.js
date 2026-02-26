@@ -80,3 +80,52 @@ const countdown = () => {
 };
 
 countdown();
+
+// ============ MODAL REGALO ============
+const modal = document.getElementById('modalRegalo');
+const btnRegalo = document.getElementById('btnRegalo');
+const modalClose = document.querySelector('.modal-close');
+const modalOverlay = document.querySelector('.modal-overlay');
+
+// Abrir modal
+btnRegalo.addEventListener('click', () => {
+  modal.classList.add('show');
+});
+
+// Cerrar modal con X
+modalClose.addEventListener('click', () => {
+  modal.classList.remove('show');
+});
+
+// Cerrar modal clickeando afuera
+modalOverlay.addEventListener('click', () => {
+  modal.classList.remove('show');
+});
+
+// Cerrar modal con ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('show')) {
+    modal.classList.remove('show');
+  }
+});
+
+// ============ ANIMACIONES SCROLL ============
+const scrollSections = document.querySelectorAll('.scroll-section');
+
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      sectionObserver.unobserve(entry.target); // Solo animar una vez
+    }
+  });
+}, observerOptions);
+
+scrollSections.forEach(section => {
+  sectionObserver.observe(section);
+});

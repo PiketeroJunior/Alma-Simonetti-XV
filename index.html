@@ -14,24 +14,29 @@
     <title>Mis XV Alma Simonetti</title>
 </head>
 <body>
-    <section class="presentacion">
-        <div class="izquierda">
-            <img src="img/Almi 2.jpg" alt="Cumplañera" class="foto-portada">
-            <div class="nombre">
-                <h2>Alma</h2>
-            </div>
-        </div>
-        <div class="derecha">
-            <div class="cont-derecha">
-                <h1>Mis XV</h1>
-                <p class="frase">"Mi mayor deseo para mí noche soñada es poder compartirla con las personas que más amo y las que siempre me acompañan para guardar momentos que quedarán en mi corazón, Te espero ahí"</p>
-                <p class="fecha">10 de Abril 2026</p>
-                <img src="img/bolas de boliche 6.png" alt="decoracion" class="imgDeco">
-            </div>
+    <!-- Sección 1: Foto con efecto de fondo y nombre Alma -->
+    <section class="foto-inicio">
+        <!-- Fondo zoomeado y difuminado -->
+        <div class="foto-fondo"></div>
+        <!-- Foto original centrada -->
+        <img src="img/Almi 2.jpg" alt="Cumplañera" class="foto-principal">
+        <!-- Nombre Alma -->
+        <div class="nombre">
+            <h2>Alma</h2>
         </div>
     </section>
 
-    <section class="lugar">
+    <!-- Sección 2: Mis XV -->
+    <section class="presentacion scroll-section">
+        <div class="cont-derecha">
+            <h1>Mis XV</h1>
+            <p class="frase">"Mi mayor deseo para mí noche soñada es poder compartirla con las personas que más amo y las que siempre me acompañan para guardar momentos que quedarán en mi corazón, Te espero ahí"</p>
+            <p class="fecha">10 de Abril 2026</p>
+            <img src="img/broche.png" alt="decoracion" class="imgDeco">
+        </div>
+    </section>
+
+    <section class="lugar scroll-section">
         <h2 class="subtitulo">Lugar de Celebración</h2>
         <h3>Janos Eventos</h3>
         <p>Pedro Diaz 1800 - Hurlingham</p>
@@ -39,7 +44,7 @@
         <a href="https://maps.app.goo.gl/jSvB9m33mW1pdCm77" target="_blank" class="btn">Cómo Llegar</a>
     </section>
 
-    <section class="contador">
+    <section class="contador scroll-section">
         <h2 class="subtitulo">Faltan...</h2>
         <div class="countdown">
             <div class="tiempo">
@@ -61,19 +66,19 @@
         </div>
     </section>
 
-    <section class="asistencia">
+    <section class="asistencia scroll-section">
         <h2 class="subtitulo">Confirmación de Asistencia</h2>
         <p>Espero que me acompañes en este día tan especial para mí. ¡Confirma tu asistencia antes del 26 de Marzo!</p>
-        <a href="https://wa.me/541135784470" target="_blank" class="btn-confirmar">Confirmar Asistencia</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdttjBtfq6uoqbRjacwEgHTCmAcgjE82Xf_Ipkt8v1BKFcpow/viewform?usp=dialog" target="_blank" class="btn-confirmar">Confirmar Asistencia</a>
     </section>
 
-    <section class="dresscode">
+    <section class="dresscode scroll-section">
         <h2 class="subtitulo">Dress Code</h2>
         <img src="icons/dresscode 3.png" alt="vestimenta">
         <p>Formal elegante</p>
     </section>
 
-    <section class="galeria">
+    <section class="galeria scroll-section">
         <h2 class="subtitulo">Galería</h2>
         
         <div class="tendedero-wrapper">
@@ -140,11 +145,24 @@
             <img src="img/sofi1.JPG" class="agregar-imagen">
     </section>
 
-    <section class="regalo">
+    <section class="regalo scroll-section">
         <h2 class="subtitulo">Regalo</h2>
-        <p>Si querés hacerme un regalito 💌</p>
-        <p class="alias">Alias: alma.simonetti15</p>
+        <p>Lo más lindo es que me acompañes en este día tan especial. Pero si querés regalarme algo más que tu presencia...</p>
+        <button class="btn-regalo" id="btnRegalo">Ver Datos</button>
     </section>
+
+    <!-- Modal Regalo -->
+    <div class="modal-regalo" id="modalRegalo">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            
+            <div class="modal-info">
+                <p class="modal-alias">Alias: <strong>alma.simonetti15</strong></p>
+                
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>

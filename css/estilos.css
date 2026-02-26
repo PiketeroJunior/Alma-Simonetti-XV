@@ -30,92 +30,103 @@
   margin-bottom: 15px;
   font-family: "Tempting", sans-serif;
 }
-/*Presentacion*/
-.presentacion {
-   /*position: relative;*/
+
+/* ============ FOTO INICIO CON EFECTO DE FONDO ============ */
+.foto-inicio {
+  position: relative;
   height: 100vh;
-  display: flex;
-   /*align-items: center;*/
-  /*justify-content: center; */
-   /*text-align: center;*/
-   /*color: #fff;*/
-}
-
-.izquierda {
-  position: relative; /* agregado */
-  width: 50%;
-  height: 100%;
-}
-
-.izquierda .foto-portada {
-   /*position: absolute;*/
-   /*inset: 0;*/
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-   /*z-index: -1;*/
-}
-
-/*.presentacion::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  z-index: 0;
-}*/
-
-/*antes texto portada ahora derecha*/ 
-.derecha {     
-  /* position: relative;  */ /* alt + shift + a comenta el codigo */
-  /* z-index: 1; */  /* o si no ctrl + k + c pero con el mouse */
-  width: 50%;
-  background-color: #FFEEBD; /* o navy  #FFEEBD*/
-  color: #222; /* o #fff */
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 20px;
+  background: #000;
 }
-/* antes texto portada ahora cont-derecha */
+
+/* Fondo zoomeado y difuminado */
+.foto-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/Almi 2.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+/* Foto principal centrada */
+.foto-principal {
+  position: relative;
+  max-width: 100%;
+  max-height: 100vh;
+  width: auto;
+  height: 100vh;
+  object-fit: contain;
+  z-index: 1;
+}
+
+/* Nombre Alma - centrado abajo */
+.nombre {
+  position: absolute;
+  bottom: 40px;
+  left: 38%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+.nombre h2 {
+  font-family: 'Recoleta', sans-serif;
+  font-size: 4rem;
+  margin: 0;
+}
+
+/* ============ SECCIÓN PRESENTACIÓN (MIS XV) ============ */
+.presentacion {
+  padding: 80px 40px;
+  background-color: #FFEEBD;
+  color: #222;
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cont-derecha {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .cont-derecha h1 {
-  font-size: 3.2rem;
-  margin-bottom: 10px;
+  font-size: 5rem;
+  margin-bottom: 30px;
   font-family: 'Tempting', sans-serif;
 }
 
 .cont-derecha .frase {
   font-size: 2.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   font-family: 'Tempting', sans-serif;
+  line-height: 1.4;
 }
 
 .cont-derecha .fecha {
-  font-size: 2.0rem;
+  font-size: 2.2rem;
   font-style: italic;
   font-family: 'Tempting', sans-serif;
+  margin-bottom: 30px;
 }
 
 .imgDeco {
   width: 250px;
   height: auto;
   margin-top: 20px;
-}
-
-.nombre {
-  position: absolute;
-  bottom: 20px;
-  left: 50px;
-  transform: translateY(-50%);
-  color: #fff;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  z-index: 2;
-}
-
-.nombre h2 {
-  font-family: 'Recoleta', sans-serif;
-  font-size: 3.5rem;
-  margin: 0;
 }
 
 /*Lugar*/
@@ -551,7 +562,7 @@
     transform: translate(0);
 }
 
-/* Alias */
+/* Alias - Regalo */
 .regalo {
   padding: 60px 20px;
   text-align: center;
@@ -561,6 +572,134 @@
 .regalo p {
     font-size: 1.5rem;
     margin-bottom: 15px;
+}
+
+.btn-regalo {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 35px;
+  background: #222;
+  color: #FFEEBD;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-regalo:hover {
+  background: #444;
+  transform: scale(1.05);
+}
+
+/* ============ MODAL REGALO ============ */
+.modal-regalo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-regalo.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  z-index: 2001;
+  transform: scale(0.7);
+  transition: transform 0.3s ease;
+}
+
+.modal-regalo.show .modal-content {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #222;
+}
+
+.modal-content h3 {
+  font-family: 'Tempting', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+.modal-info {
+  padding: 20px;
+  background: #FFEEBD;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.modal-alias {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.modal-alias strong {
+  font-size: 1.6rem;
+  display: block;
+  margin-top: 5px;
+}
+
+.modal-frase {
+  font-family: 'Tempting', sans-serif;
+  font-size: 1.5rem;
+  color: #555;
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* ============ ANIMACIONES SCROLL ============ */
+.scroll-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .alias {
@@ -591,34 +730,40 @@ footer a.footer-link:hover {
 }
 
 @media (max-width: 768px) {
+  /* Foto inicio responsive - Tablet */
+  .foto-principal {
+    height: 100vh;
+    width: auto;
+  }
+
+  .foto-fondo {
+    filter: brightness(0.7);
+  }
+
+  .nombre h2 {
+    font-size: 3.5rem;
+  }
+
+  /* Presentación responsive */
   .presentacion {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .izquierda {      /* antes izquierda y der con width 100% y height auto */
-    width: 100%;
-    height: 70vh;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .izquierda .foto-portada {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: relative;
-  }
-
-  .derecha {
-    width: 100%;
-    height: auto;
+    padding: 60px 30px;
     min-height: 50vh;
-    padding: 40px 20px;
+  }
+
+  .cont-derecha h1 {
+    font-size: 4rem;
   }
 
   .cont-derecha .frase {
-    font-size: 3em;
+    font-size: 2rem;
+  }
+
+  .cont-derecha .fecha {
+    font-size: 1.8rem;
+  }
+
+  .imgDeco {
+    width: 200px;
   }
 
   .contador {
@@ -650,5 +795,49 @@ footer a.footer-link:hover {
 
   .dresscode img {
     width: 7em;
+  }
+}
+
+/* Mobile pequeño - iPhone y similares */
+@media (max-width: 500px) {
+  .foto-principal {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    object-fit: cover;
+  }
+
+  .foto-fondo {
+    filter: brightness(0.7);
+  }
+
+  .nombre {
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nombre h2 {
+    font-size: 2.8rem;
+  }
+
+  .presentacion {
+    padding: 50px 20px;
+  }
+
+  .cont-derecha h1 {
+    font-size: 3.5rem;
+  }
+
+  .cont-derecha .frase {
+    font-size: 1.8rem;
+  }
+
+  .cont-derecha .fecha {
+    font-size: 1.6rem;
+  }
+
+  .imgDeco {
+    width: 180px;
   }
 }
