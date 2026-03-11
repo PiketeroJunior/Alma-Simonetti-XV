@@ -202,7 +202,7 @@
 }
 
 .lugar .btn:hover {
-  background: #5a94c9;
+  background: #FFEAA7; /*#5a94c9 #FFE082 #FFECB3*/
   transform: scale(1.05);
 }
 
@@ -241,7 +241,7 @@
 
 .tiempo:hover {
   transform: scale(1.05);
-  background: #5a94c9;
+  background: #FFEAA7;
 }
 
 .tiempo span {
@@ -282,7 +282,7 @@
 }
 
 .btn-confirmar:hover {
-  background: #5a94c9;
+  background: #FFEAA7;
   transform: scale(1.05);
 }
 /* Dresscode */
@@ -772,11 +772,12 @@
 
 footer {
   text-align: center;
-  padding: 10px;
+  padding: 20px 15px;
   background-color: #333;
   color: #fff;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 footer a.footer-link {
@@ -788,6 +789,69 @@ footer a.footer-link {
 
 footer a.footer-link:hover {
   color: #FFEEBD;
+}
+
+/* Hover específico para WhatsApp - Verde */
+footer a.footer-whatsapp:hover {
+  color: #25D366;
+}
+
+/* Hover específico para Correo - Naranja cálido */
+footer a.footer-correo:hover {
+  color: #EA6B6B;
+}
+
+/* Footer Opción 2 - Responsive */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer-content p {
+  margin: 5px 0;
+}
+
+.copyright {
+  white-space: nowrap;
+}
+
+.separador-footer {
+  color: #FFEEBD;
+  margin: 0 10px;
+}
+
+.promo {
+  font-size: 0.9rem;
+}
+
+/* Footer Responsive */
+@media (max-width: 768px) {
+  footer {
+    font-size: 0.85rem;
+    padding: 15px 10px;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .separador-footer {
+    display: none;
+  }
+  
+  .promo {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 768px) {
